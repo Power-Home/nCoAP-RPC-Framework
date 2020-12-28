@@ -7,7 +7,9 @@ import com.hompan.rpc.main.transport.socket.server.SocketServer;
 
 /**
  * 测试用服务提供方（服务端）
+ * 注解形式注册、扫描服务实例
  */
+
 @ServiceScan
 public class SocketDemoServer {
 
