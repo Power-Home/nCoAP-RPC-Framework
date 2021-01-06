@@ -12,7 +12,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * 进行过程调用的处理器
+ * @author PanHom
+ * 进行过程调用的处理器。（调用底层实现类方法）
  */
 public class RequestHandler {
 
@@ -24,6 +25,7 @@ public class RequestHandler {
     }
 
     public Object handle(CoapRequest CoapRequest) {
+        //取出对应的实现类并利用反射处理请求
         Object service = serviceProvider.getServiceProvider(CoapRequest.getInterfaceName());
         return invokeTargetMethod(CoapRequest, service);
     }

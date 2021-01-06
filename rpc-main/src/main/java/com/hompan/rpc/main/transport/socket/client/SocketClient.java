@@ -24,6 +24,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 /**
+ * @author PanHom
  * Socket方式远程方法调用的消费者（客户端）
  */
 public class SocketClient implements RpcClient {

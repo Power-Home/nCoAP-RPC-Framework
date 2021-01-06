@@ -13,6 +13,11 @@ import com.hompan.rpc.common.util.ReflectUtil;
 import java.net.InetSocketAddress;
 import java.util.Set;
 
+/**
+ * @author PanHom
+ * nettyserver 和 socketserver的父类，通过扫描注解实现了父接口的publishService方法
+ *
+ */
 public abstract class AbstractRpcServer implements RpcServer {
 
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -65,7 +70,9 @@ public abstract class AbstractRpcServer implements RpcServer {
 
     @Override
     public <T> void publishService(T service, String serviceName) {
+        //将反射创建的服务实现类及其名字放入服务器中的map中
         serviceProvider.addServiceProvider(service, serviceName);
+        //将扫描到的servicename，比如sayHi，注册进nacos注册中心
         serviceRegistry.register(serviceName, new InetSocketAddress(host, port));
     }
 

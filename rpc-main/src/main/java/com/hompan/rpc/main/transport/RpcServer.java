@@ -3,6 +3,7 @@ package com.hompan.rpc.main.transport;
 import com.hompan.rpc.main.serializer.CommonSerializer;
 
 /**
+ * @author PanHom
  * 服务器类通用接口
  */
 public interface RpcServer {

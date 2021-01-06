@@ -15,6 +15,7 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 
 /**
+ * @author PanHom
  * Socket方式远程方法调用的提供者（服务端）
  */
 public class SocketServer extends AbstractRpcServer {
@@ -31,10 +32,10 @@ public class SocketServer extends AbstractRpcServer {
         this.host = host;
         this.port = port;
         threadPool = ThreadPoolFactory.createDefaultThreadPool("socket-rpc-server",false);
-        this.serviceRegistry = new NacosServiceRegistry();
-        this.serviceProvider = new ServiceProviderImpl();
+        this.serviceRegistry = new NacosServiceRegistry();  //nacos端
+        this.serviceProvider = new ServiceProviderImpl();   //服务器端
         this.serializer = CommonSerializer.getByCode(serializer);
-        scanServices();
+        scanServices(); //先扫描注册服务
     }
 
     @Override

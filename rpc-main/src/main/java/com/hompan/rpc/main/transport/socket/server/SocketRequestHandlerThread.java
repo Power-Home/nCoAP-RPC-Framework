@@ -15,6 +15,7 @@ import java.io.OutputStream;
 import java.net.Socket;
 
 /**
+ * @author PanHom
  * 处理CoapRequest的工作线程
  */
 public class SocketRequestHandlerThread implements Runnable {
@@ -36,7 +37,7 @@ public class SocketRequestHandlerThread implements Runnable {
         try (InputStream inputStream = socket.getInputStream();
              OutputStream outputStream = socket.getOutputStream()) {
             CoapRequest CoapRequest = (CoapRequest) ObjectReader.readObject(inputStream);
-            Object result = requestHandler.handle(CoapRequest);
+            Object result = requestHandler.handle(CoapRequest);  //调用注册的实现类方法去处理
             CoapResponse<Object> response = CoapResponse.success(result, CoapRequest.getRequestId());
             ObjectWriter.writeObject(outputStream, response, serializer);
         } catch (IOException e) {

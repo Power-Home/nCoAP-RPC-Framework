@@ -11,7 +11,8 @@ import com.hompan.rpc.services.Info;
 
 /**
  * 测试用Netty消费者
- * proxy actually means procy factory here, which aims to create a corresponding dynamic proxy instance here
+ * proxy actually means procy factory here,
+ * which aims to create a corresponding dynamic proxy instance here
  */
 public class NettyDemoClient {
 
