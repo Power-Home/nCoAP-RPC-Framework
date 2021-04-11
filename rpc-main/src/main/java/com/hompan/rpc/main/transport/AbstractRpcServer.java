@@ -72,7 +72,7 @@ public abstract class AbstractRpcServer implements RpcServer {
     public <T> void publishService(T service, String serviceName) {
         //将反射创建的服务实现类及其名字放入服务器中的map中
         serviceProvider.addServiceProvider(service, serviceName);
-        //将扫描到的servicename，比如sayHi，注册进nacos注册中心
+        //将扫描到的servicename，比如sayHi，注册进nacos注册中心，注意只需要字符串即可
         serviceRegistry.register(serviceName, new InetSocketAddress(host, port));
     }
 

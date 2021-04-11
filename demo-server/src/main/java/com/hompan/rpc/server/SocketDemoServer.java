@@ -16,7 +16,7 @@ public class SocketDemoServer {
 
     public static void main(String[] args) {
         //1.扫描服务，并注册进nacos和服务器中
-        RpcServer server = new SocketServer("127.0.0.1", 6969, CommonSerializer.PROTOBUF_SERIALIZER);
+        RpcServer server = new SocketServer("127.0.0.1", 6969, CommonSerializer.KRYO_SERIALIZER);
         //2.监听端口，处理连接请求并返回
         server.start();
     }

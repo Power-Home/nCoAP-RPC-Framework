@@ -15,7 +15,7 @@ import com.hompan.rpc.services.Info;
 public class SocketDemoClient {
 
     public static void main(String[] args) {
-        SocketClient client = new SocketClient(CommonSerializer.PROTOBUF_SERIALIZER);
+        SocketClient client = new SocketClient(CommonSerializer.KRYO_SERIALIZER);
         RpcClientProxy proxyGetter = new RpcClientProxy(client);  //invocation handler
         //返回一个动态代理对象
         HelloService helloService = proxyGetter.getProxy(HelloService.class);

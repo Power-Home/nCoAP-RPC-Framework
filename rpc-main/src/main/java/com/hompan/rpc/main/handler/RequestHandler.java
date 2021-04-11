@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 
 /**
  * @author PanHom
- * 进行过程调用的处理器。（调用底层实现类方法）
+ * 进行过程调用的处理器（服务端调用底层实现类方法，并返回结果）。
  */
 public class RequestHandler {
 
@@ -25,7 +25,7 @@ public class RequestHandler {
     }
 
     public Object handle(CoapRequest CoapRequest) {
-        //取出对应的实现类并利用反射处理请求
+        //在map缓存中取出对应的实现类并利用反射处理请求
         Object service = serviceProvider.getServiceProvider(CoapRequest.getInterfaceName());
         return invokeTargetMethod(CoapRequest, service);
     }

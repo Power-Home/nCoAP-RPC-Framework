@@ -16,7 +16,7 @@ import java.net.Socket;
 
 /**
  * @author PanHom
- * 处理CoapRequest的工作线程
+ * 服务器端处理CoapRequest的工作线程，从线程池取出
  */
 public class SocketRequestHandlerThread implements Runnable {
 
